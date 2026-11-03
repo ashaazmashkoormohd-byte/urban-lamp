@@ -1,0 +1,8 @@
+{
+  "name": "NEXUS 2040 — India's AI City Intelligence System",
+  "description": "An autonomous metropolitan intelligence digital twin and rule-based simulation engine for India's Vision 2040, featuring real-time 3D Three.js city visualization, infrastructure budgeting, crisis response, and long-range projections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
