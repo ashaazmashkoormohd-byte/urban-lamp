@@ -25,7 +25,7 @@ export const Epilogue: React.FC<EpilogueProps> = ({ onOpenGame }) => {
               className="btn btn-primary btn-lg"
               type="button"
             >
-              <span>🚨</span> Play City Rescue
+              <span>🚨</span> Play Crisis Commander
             </button>
             <a href="#hero" className="btn btn-ghost btn-lg">
               <span>↑</span> Return to Top

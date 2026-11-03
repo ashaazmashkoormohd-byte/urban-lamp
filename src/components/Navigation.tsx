@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { formatClockTime } from '../utils/simulation';
-import { Play, Pause, RotateCcw } from 'lucide-react';
+import { soundFx } from '../utils/audio';
+import { Play, Pause, RotateCcw, Volume2, VolumeX, ShieldAlert } from 'lucide-react';
 
 interface NavigationProps {
   simRunning: boolean;
   onToggleSim: () => void;
   onReset: () => void;
-  onOpenGame?: () => void;
+  onLaunchGame: () => void;
 }
 
 export const Navigation: React.FC<NavigationProps> = ({
   simRunning,
   onToggleSim,
   onReset,
+  onLaunchGame,
 }) => {
   const [clock, setClock] = useState(formatClockTime(new Date()));
+  const [soundOn, setSoundOn] = useState<boolean>(true);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -23,6 +26,12 @@ export const Navigation: React.FC<NavigationProps> = ({
     return () => clearInterval(timer);
   }, []);
 
+  const handleToggleSound = () => {
+    const next = !soundOn;
+    setSoundOn(next);
+    soundFx.setMuted(!next);
+  };
+
   return (
     <header className="nexus-nav">
       <div className="nav-container">
@@ -30,52 +39,52 @@ export const Navigation: React.FC<NavigationProps> = ({
           <span className="brand-mark">NEXUS</span>
           <span className="brand-year">2040</span>
           <span className="sim-live-badge">
-            <span className={`live-dot ${!simRunning ? 'paused' : ''}`} id="liveDot"></span>
-            <span>{simRunning ? 'SIMULATED · LIVE' : 'SIMULATION · PAUSED'}</span>
+            <span className={`live-dot ${!simRunning ? 'paused' : ''}`}></span>
+            <span>AUTONOMOUS · LIVE</span>
           </span>
         </a>
 
         {/* Smooth Navigation Jump Links */}
         <nav className="nav-links" aria-label="Experience Sections">
-          <a href="#vision" className="nav-link">Vision</a>
-          <a href="#city3d-section" className="nav-link">3D City</a>
-          <a href="#systems-showcase" className="nav-link">Systems</a>
+          <a href="#game-section" className="nav-link special-link">
+            🎮 Crisis Commander
+          </a>
+          <a href="#city3d-section" className="nav-link">3D Twin</a>
+          <a href="#protocols-section" className="nav-link">5 Protocols</a>
+          <a href="#systems-showcase" className="nav-link">Architecture</a>
           <a href="#future-section" className="nav-link">Future 2040</a>
-          <a href="#rescue-section" className="nav-link">City Rescue</a>
-          <a href="#operations-suite" className="nav-link">Command Suite</a>
+          <a href="#operations-suite" className="nav-link">Operations</a>
         </nav>
 
         {/* Right Actions & Clock */}
         <div className="nav-actions">
-          <span className="clock-display" id="clock">{clock}</span>
           <button
-            id="simToggleBtn"
-            className="btn btn-ghost btn-sm"
+            onClick={handleToggleSound}
+            className="btn btn-ghost btn-icon-only"
             type="button"
-            onClick={onToggleSim}
-            title={simRunning ? 'Pause Live Simulation' : 'Resume Live Simulation'}
+            title={soundOn ? 'Mute Sounds' : 'Enable Sounds'}
           >
-            {simRunning ? (
-              <>
-                <Pause size={14} style={{ marginRight: '4px' }} />
-                Pause
-              </>
-            ) : (
-              <>
-                <Play size={14} style={{ marginRight: '4px' }} />
-                Resume
-              </>
-            )}
+            {soundOn ? <Volume2 size={15} /> : <VolumeX size={15} />}
           </button>
+
+          <span className="clock-display" id="clock">{clock}</span>
+
           <button
-            id="resetBtn"
+            onClick={onReset}
             className="btn btn-danger btn-sm"
             type="button"
-            onClick={onReset}
-            title="Reset City to Default Crisis Baseline"
+            title="Reset City to Crisis Baseline"
           >
-            <RotateCcw size={14} style={{ marginRight: '4px' }} />
+            <RotateCcw size={13} style={{ marginRight: '4px' }} />
             Reset
+          </button>
+
+          <button
+            onClick={onLaunchGame}
+            className="btn btn-primary btn-sm nav-cta-btn"
+            type="button"
+          >
+            <span>🚨</span> Play Game
           </button>
         </div>
       </div>

@@ -15,6 +15,38 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏙️</text></svg>" />
+    <script>
+      (function() {
+        // Defensive polyfill for browser extensions attempting to assign to window.fetch
+        try {
+          var _fetch = window.fetch ? window.fetch.bind(window) : undefined;
+          Object.defineProperty(window, 'fetch', {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+              return _fetch;
+            },
+            set: function(fn) {
+              _fetch = fn;
+            }
+          });
+        } catch (_) {}
+
+        // Suppress external browser extension injection errors from breaking execution
+        window.addEventListener('error', function(event) {
+          if (
+            event &&
+            event.filename &&
+            (event.filename.indexOf('chrome-extension://') !== -1 ||
+             event.filename.indexOf('moz-extension://') !== -1)
+          ) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

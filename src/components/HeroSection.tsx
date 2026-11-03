@@ -1,111 +1,84 @@
 import React from 'react';
+import { Play, Compass, ShieldAlert, Cpu } from 'lucide-react';
 import { CityState } from '../types/city';
-import { roundVal, trafficStatus, renewableStatus, waterStatus, aqiStatus, marginStatus } from '../data/cityData';
+import { roundVal } from '../data/cityData';
+import { soundFx } from '../utils/audio';
 
 interface HeroSectionProps {
   state: CityState;
-  onOpenGame: () => void;
+  onLaunchGame: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ state, onOpenGame }) => {
-  const m = state.metrics;
-  const tStatus = trafficStatus(m.traffic);
-  const rStatus = renewableStatus(m.renewable);
-  const wStatus = waterStatus(m.water);
-  const aStatus = aqiStatus(m.aqi);
-  const margin = m.supply - m.demand;
-  const mStatus = marginStatus(m.supply, m.demand);
-
-  const getStatusText = (status: 'good' | 'moderate' | 'critical', type: string) => {
-    switch (type) {
-      case 'traffic':
-        return status === 'good' ? 'Optimal Flow' : status === 'moderate' ? 'Moderate Congestion' : 'Severe Gridlock';
-      case 'renewable':
-        return status === 'good' ? 'Solar/BESS Active' : status === 'moderate' ? 'Hybrid Mix' : 'Fossil Strain';
-      case 'water':
-        return status === 'good' ? 'Sponge Aquifer Full' : status === 'moderate' ? 'Buffering Reserves' : 'Critical Deficit';
-      case 'aqi':
-        return status === 'good' ? 'Clean Air Corridor' : status === 'moderate' ? 'Moderate Particulates' : 'Toxic Smog Surge';
-      case 'margin':
-        return status === 'good' ? 'Supply Margin Safe' : status === 'moderate' ? 'Tight Capacity' : 'Deficit Risk';
-      default:
-        return '';
-    }
-  };
-
-  const getStatusClass = (status: 'good' | 'moderate' | 'critical') => {
-    return status === 'good' ? 'color-good' : status === 'moderate' ? 'color-moderate' : 'color-critical';
+export const HeroSection: React.FC<HeroSectionProps> = ({ state, onLaunchGame }) => {
+  const handlePlayClick = () => {
+    soundFx.playClick();
+    onLaunchGame();
   };
 
   return (
-    <section id="hero" className="hero-section">
-      <div className="hero-glow-back"></div>
-      <div className="hero-content">
-        <div className="hero-badge">
-          <span>🇮🇳</span> INDIA'S VISION 2040 // AUTONOMOUS METROPOLITAN INTELLIGENCE
+    <section id="hero" className="cinematic-hero-section">
+      <div className="hero-radial-glow"></div>
+      <div className="hero-grid-lines"></div>
+
+      <div className="container hero-container">
+        {/* Apple-style eyebrow */}
+        <div className="hero-eyebrow-capsule">
+          <span className="he-flag">🇮🇳</span>
+          <span className="he-text">INDIA&apos;S VISION 2040 // AUTONOMOUS METROPOLITAN INTELLIGENCE</span>
         </div>
-        <h1 className="hero-title">The City That Thinks.</h1>
-        <p className="hero-sub">
-          A transparent, deterministic rule-based intelligence layer managing 10 million citizens, net-zero renewable energy, and instantaneous climate resilience.
+
+        {/* The Exact Required Headline & Subheading */}
+        <h1 className="hero-massive-headline">
+          THE CITY IS YOURS TO SAVE.
+        </h1>
+        <p className="hero-cinematic-sub">
+          Five AI protocols. One living city. Two minutes to change its future.
         </p>
 
-        <div className="hero-cta-group">
-          <a href="#city3d-section" className="btn btn-primary btn-lg">
-            <span>🏙️</span> Explore 3D City ↓
-          </a>
+        {/* Functional Hero Buttons */}
+        <div className="hero-buttons-row">
           <button
-            onClick={onOpenGame}
-            className="btn btn-ghost btn-lg"
-            style={{ borderColor: 'var(--cyan)', color: 'var(--cyan)' }}
+            onClick={handlePlayClick}
+            className="btn btn-primary btn-xl hero-btn-glow"
             type="button"
           >
-            <span>🚨</span> Play City Rescue
+            <Play size={20} style={{ marginRight: '8px' }} /> PLAY THE GAME
           </button>
-          <a href="#operations-suite" className="btn btn-ghost btn-lg">
-            <span>⚡</span> Operations Suite
+          <a href="#city3d-section" className="btn btn-ghost btn-xl">
+            <Compass size={20} style={{ marginRight: '8px' }} /> EXPLORE NEXUS
           </a>
         </div>
 
-        {/* Live Drifting Telemetry Capsule */}
-        <div className="hero-telemetry-capsule">
-          <div className="ht-item">
-            <span className="ht-label">Traffic Congestion</span>
-            <span className="ht-val">{roundVal(m.traffic)}%</span>
-            <span className={`ht-status ${getStatusClass(tStatus)}`}>
-              {getStatusText(tStatus, 'traffic')}
-            </span>
+        {/* Live Metropolitan Health Stream Capsule */}
+        <div className="hero-telemetry-bar">
+          <div className="htb-item">
+            <span className="htb-label">Managed Citizens</span>
+            <span className="htb-val">10,000,000</span>
+            <span className="htb-sub color-good">Protected Arcologies</span>
           </div>
 
-          <div className="ht-item">
-            <span className="ht-label">Clean Grid Share</span>
-            <span className="ht-val">{roundVal(m.renewable)}%</span>
-            <span className={`ht-status ${getStatusClass(rStatus)}`}>
-              {getStatusText(rStatus, 'renewable')}
-            </span>
+          <div className="htb-item">
+            <span className="htb-label">Clean Grid Share</span>
+            <span className="htb-val">{roundVal(state.metrics.renewable)}%</span>
+            <span className="htb-sub color-cyan">Solid-State BESS Active</span>
           </div>
 
-          <div className="ht-item">
-            <span className="ht-label">Water Reserves</span>
-            <span className="ht-val">{roundVal(m.water)}%</span>
-            <span className={`ht-status ${getStatusClass(wStatus)}`}>
-              {getStatusText(wStatus, 'water')}
-            </span>
+          <div className="htb-item">
+            <span className="htb-label">Sponge Reserves</span>
+            <span className="htb-val">{roundVal(state.metrics.water)}%</span>
+            <span className="htb-sub color-cyan">4.5M L / Storm Aquifer</span>
           </div>
 
-          <div className="ht-item">
-            <span className="ht-label">Air Quality Index</span>
-            <span className="ht-val">{roundVal(m.aqi)} AQI</span>
-            <span className={`ht-status ${getStatusClass(aStatus)}`}>
-              {getStatusText(aStatus, 'aqi')}
-            </span>
+          <div className="htb-item">
+            <span className="htb-label">Traffic Congestion</span>
+            <span className="htb-val">{roundVal(state.metrics.traffic)}%</span>
+            <span className="htb-sub color-good">AI Wave Sequencing</span>
           </div>
 
-          <div className="ht-item">
-            <span className="ht-label">Grid Headroom</span>
-            <span className="ht-val">{margin >= 0 ? `+${roundVal(margin)}%` : `${roundVal(margin)}%`}</span>
-            <span className={`ht-status ${getStatusClass(mStatus)}`}>
-              {getStatusText(mStatus, 'margin')}
-            </span>
+          <div className="htb-item">
+            <span className="htb-label">Air Purity Index</span>
+            <span className="htb-val">{roundVal(state.metrics.aqi)} AQI</span>
+            <span className="htb-sub color-good">Safe Respiratory Corridor</span>
           </div>
         </div>
       </div>

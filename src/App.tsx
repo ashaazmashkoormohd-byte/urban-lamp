@@ -17,11 +17,12 @@ import {
 
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
-import { VisionSection } from './components/VisionSection';
+import { CrisisCommanderGame } from './components/CrisisCommanderGame';
 import { City3DSection } from './components/City3DSection';
+import { ProtocolDeepDive } from './components/ProtocolDeepDive';
+import { VisionSection } from './components/VisionSection';
 import { SystemsShowcase } from './components/SystemsShowcase';
 import { FutureSimulator } from './components/FutureSimulator';
-import { CityRescueGame } from './components/CityRescueGame';
 import { OperationsSuite } from './components/OperationsSuite';
 import { Epilogue } from './components/Epilogue';
 
@@ -74,9 +75,6 @@ export const App: React.FC = () => {
     after: MetricComparison;
     title: string;
   } | null>(null);
-
-  // Modal Game State
-  const [isGameModalOpen, setIsGameModalOpen] = useState<boolean>(false);
 
   // Helper to add log entries
   const addLog = useCallback(
@@ -350,40 +348,62 @@ export const App: React.FC = () => {
   };
 
   const handleScrollToGame = () => {
-    const el = document.getElementById('rescue-section');
+    const el = document.getElementById('game-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleScrollToCity = () => {
+    const el = document.getElementById('city3d-section');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <div className="nexus-app">
+      {/* 1. Frosted Navigation Bar */}
       <Navigation
         simRunning={cityState.simRunning}
         onToggleSim={handleToggleSim}
         onReset={handleReset}
-        onOpenGame={handleScrollToGame}
+        onLaunchGame={handleScrollToGame}
       />
 
       <main>
-        <HeroSection state={cityState} onOpenGame={handleScrollToGame} />
+        {/* 2. Apple-Style Cinematic Hero */}
+        <HeroSection state={cityState} onLaunchGame={handleScrollToGame} />
 
-        <VisionSection />
+        {/* 3. NEXUS 2040: CRISIS COMMANDER 3D GAME */}
+        <section id="game-section" className="page-section" style={{ paddingTop: '2rem' }}>
+          <div className="container">
+            <div className="section-eyebrow">METROPOLITAN DEFENSE SIMULATOR</div>
+            <h2 className="section-heading-lg">NEXUS 2040: Crisis Commander.</h2>
+            <p className="section-subtext">
+              Take command of the autonomous intelligence layer. Keep 10 million citizens safe for 120 seconds by deploying the five AI protocols against dynamic climate and infrastructure crises in genuine 3D.
+            </p>
 
+            <CrisisCommanderGame onExploreCity={handleScrollToCity} />
+          </div>
+        </section>
+
+        {/* 4. Interactive 3D Digital Twin Metropolitan Explorer */}
         <City3DSection
           state={cityState}
           onUpdateTimeOfDay={handleUpdateTimeOfDay}
           onToggleAutoTime={handleToggleAutoTime}
         />
 
+        {/* 5. The Five AI Protocols Deep Dive */}
+        <ProtocolDeepDive />
+
+        {/* 6. Architectural Paradigm Bento Grid */}
+        <VisionSection />
+
+        {/* 7. Subsystems Showcase */}
         <SystemsShowcase onSelectOpsTab={setActiveOpsTab} />
 
+        {/* 8. Future Simulator 2026-2040 */}
         <FutureSimulator state={cityState} />
 
-        <CityRescueGame
-          isOpen={isGameModalOpen}
-          onClose={() => setIsGameModalOpen(false)}
-          onApplyOptimizationToCity={handleOptimizeCity}
-        />
-
+        {/* 9. Operations & Command Suite */}
         <OperationsSuite
           state={cityState}
           history={history}
@@ -398,6 +418,7 @@ export const App: React.FC = () => {
           comparisonData={comparisonData}
         />
 
+        {/* 10. Epilogue Manifesto & Footer */}
         <Epilogue onOpenGame={handleScrollToGame} />
       </main>
     </div>
