@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEXUS 2040 — India's AI City Intelligence System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================================================================
+       1. APPLE-STYLE FLOATING FROSTED GLASS NAVIGATION
+       =================================================================== -->
+  <header class="nexus-nav">
+    <div class="nav-container">
+      <a href="#hero" class="brand-group">
+        <span class="brand-mark">NEXUS</span><span class="brand-year">2040</span>
+        <span class="sim-live-badge">
+          <span class="live-dot" id="liveDot"></span>
+          <span>SIMULATED · LIVE</span>
+        </span>
+      </a>
+
+      <!-- Smooth Navigation Jump Links -->
+      <nav class="nav-links" aria-label="Experience Sections">
+        <a href="#vision" class="nav-link">Vision</a>
+        <a href="#city3d-section" class="nav-link">3D City</a>
+        <a href="#systems-showcase" class="nav-link">Systems</a>
+        <a href="#future-section" class="nav-link">Future 2040</a>
+        <a href="#operations-suite" class="nav-link">Command Suite</a>
+      </nav>
+
+      <!-- Right Actions & Clock -->
+      <div class="nav-actions">
+        <span class="clock-display" id="clock">--:--:--</span>
+        <button id="simToggleBtn" class="btn btn-ghost btn-sm" type="button" title="Pause or Resume Live Simulation">
+          Pause
+        </button>
+        <button id="resetBtn" class="btn btn-danger btn-sm" type="button" title="Reset City to Default Crisis Baseline">
+          Reset
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================================================================
+         2. CINEMATIC HERO SECTION
+         =================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="hero-glow-back"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>🇮🇳</span> INDIA'S VISION 2040 // AUTONOMOUS METROPOLITAN INTELLIGENCE
+        </div>
+        <h1 class="hero-title">The City That Thinks.</h1>
+        <p class="hero-sub">
+          A transparent, deterministic rule-based intelligence layer managing 10 million citizens, net-zero renewable energy, and instantaneous climate resilience.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#city3d-section" class="btn btn-primary btn-lg">
+            <span>🏙️</span> Explore 3D City ↓
+          </a>
+          <a href="city_rescue.html" target="_blank" class="btn btn-ghost btn-lg" style="border-color:var(--cyan); color:var(--cyan);">
+            <span>🚨</span> Play City Rescue
+          </a>
+          <a href="#operations-suite" class="btn btn-ghost btn-lg">
+            <span>⚡</span> Operations Suite
+          </a>
+        </div>
+
+        <!-- Live Drifting Telemetry Capsule (Mirrored from Simulation Engine) -->
+        <div class="hero-telemetry-capsule">
+          <div class="ht-item">
+            <span class="ht-label">Traffic Congestion</span>
+            <span class="ht-val" id="hero-traffic">34%</span>
+            <span class="ht-status color-good" id="hero-status-traffic">Optimal Flow</span>
+          </div>
+          <div class="ht-item">
+            <span class="ht-label">Clean Grid Share</span>
+            <span class="ht-val" id="hero-renewable">76%</span>
+            <span class="ht-status color-good" id="hero-status-renewable">Solar/BESS Active</span>
+          </div>
+          <div class="ht-item">
+            <span class="ht-label">Water Reserves</span>
+            <span class="ht-val" id="hero-water">84%</span>
+            <span class="ht-status color-good" id="hero-status-water">Sponge Aquifer Full</span>
+          </div>
+          <div class="ht-item">
+            <span class="ht-label">Air Quality Index</span>
+            <span class="ht-val" id="hero-aqi">62 AQI</span>
+            <span class="ht-status color-good" id="hero-status-aqi">Clean Air Corridor</span>
+          </div>
+          <div class="ht-item">
+            <span class="ht-label">Grid Headroom</span>
+            <span class="ht-val" id="hero-demand">+14%</span>
+            <span class="ht-status color-good" id="hero-status-demand">Supply Margin Safe</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         3. SCROLL-DRIVEN NARRATIVE: "URBAN CIVILISATION RE-ENGINEERED"
+         =================================================================== -->
+    <section id="vision" class="page-section">
+      <div class="container">
+        <div class="section-eyebrow">THE ARCHITECTURAL PARADIGM</div>
+        <h2 class="section-heading-lg">Urban Civilisation, Re-Engineered.</h2>
+        <p class="section-subtext">
+          By 2040, India will house over 600 million urban citizens. Dense megacities cannot rely on human reaction latency or opaque "black-box" machine learning during cascading climate emergencies. NEXUS 2040 demonstrates an explainable, deterministic intelligence layer where every threshold is verifiable.
+        </p>
+
+        <!-- Bento Grid: Four Core Pillars -->
+        <div class="bento-grid">
+          <div class="bento-card span-8">
+            <div>
+              <div class="bento-num">01 // DETERMINISTIC REASONING</div>
+              <h3 class="bento-title">Transparent Logic. Zero Hallucinations.</h3>
+              <p class="bento-text">
+                Every recommendation and emergency response is governed by deterministic, human-auditable if/else thresholds defined directly in code. Every action is timestamped, justified, and measured in public logs for total municipal accountability.
+              </p>
+            </div>
+            <div class="bento-stat-highlight">
+              <span class="bento-big-num">100%</span>
+              <span class="bento-big-label">Auditable Decision Traceability</span>
+            </div>
+          </div>
+
+          <div class="bento-card span-4">
+            <div>
+              <div class="bento-num">02 // SPONGE HYDROLOGY</div>
+              <h3 class="bento-title">Closed-Loop Aquifers</h3>
+              <p class="bento-text">
+                Monsoon cloudbursts are intercepted in real-time, diverting stormwater into subterranean sponge aquifers in under 120 seconds.
+              </p>
+            </div>
+            <div class="bento-stat-highlight">
+              <span class="bento-big-num">4.5M</span>
+              <span class="bento-big-label">Litres Harvested Per Storm</span>
+            </div>
+          </div>
+
+          <div class="bento-card span-4">
+            <div>
+              <div class="bento-num">03 // SOLID-STATE GRID</div>
+              <h3 class="bento-title">24/7 BESS Balancing</h3>
+              <p class="bento-text">
+                Massive Battery Energy Storage Systems (BESS) absorb midday solar spikes, discharging seamlessly during evening cooling surges.
+              </p>
+            </div>
+            <div class="bento-stat-highlight">
+              <span class="bento-big-num">80%+</span>
+              <span class="bento-big-label">Renewable Grid Target</span>
+            </div>
+          </div>
+
+          <div class="bento-card span-8">
+            <div>
+              <div class="bento-num">04 // AUTONOMOUS GREEN CORRIDORS</div>
+              <h3 class="bento-title">Adaptive Wave Signal Control</h3>
+              <p class="bento-text">
+                AI signal sequencing dynamically clears congestion bottlenecks before vehicular emissions can settle into dense residential arcologies, keeping PM2.5 within safe respiratory thresholds.
+              </p>
+            </div>
+            <div class="bento-stat-highlight">
+              <span class="bento-big-num">-40%</span>
+              <span class="bento-big-label">Peak Congestion Drop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         4. INTERACTIVE 3D CITY EXPERIENCE
+         =================================================================== -->
+    <section id="city3d-section" class="page-section" style="padding-top:2rem;">
+      <div class="container">
+        <div class="section-eyebrow">INTERACTIVE METROPOLITAN DIGITAL TWIN</div>
+        <h2 class="section-heading-lg">Explore Nexus City in Genuine 3D.</h2>
+        <p class="section-subtext">
+          Rendered live in your browser with Three.js. Drag to rotate, scroll to zoom, right-click to pan. Select cinematic camera presets, scrub the day/night lighting cycle, or click any structure to inspect its live simulated status.
+        </p>
+
+        <div class="city-3d-wrapper">
+          <!-- Top 3D Control Bar -->
+          <div class="city-controls-bar">
+            <!-- Camera Presets -->
+            <div class="cam-presets-group">
+              <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; margin-right:0.3rem;">CAMERAS:</span>
+              <button class="preset-pill active" data-cam-preset="overview" type="button">🌐 Overview</button>
+              <button class="preset-pill" data-cam-preset="cbd" type="button">🏙️ CBD Towers</button>
+              <button class="preset-pill" data-cam-preset="solar" type="button">☀️ Solar Grid</button>
+              <button class="preset-pill" data-cam-preset="reservoir" type="button">💧 Eco-Reservoir</button>
+              <button class="preset-pill" data-cam-preset="hospital" type="button">🏥 Hospital Hub</button>
+            </div>
+
+            <!-- Time of Day Control -->
+            <div class="time-control">
+              <label for="timeSlider">Time of Day:</label>
+              <input type="range" id="timeSlider" min="0" max="24" step="0.5" value="12">
+              <span id="timeDisplay" style="font-family:var(--font-mono); font-weight:700; color:#fff;">12:00</span>
+              <button id="autoTimeBtn" class="preset-pill" type="button">Auto: ON</button>
+            </div>
+
+            <!-- Infrastructure Layer Toggles -->
+            <div class="layer-toggles">
+              <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; margin-right:0.2rem;">LAYERS:</span>
+              <button class="layer-toggle active" data-layer="roads" type="button">Roads</button>
+              <button class="layer-toggle active" data-layer="electricity" type="button">Electricity</button>
+              <button class="layer-toggle active" data-layer="water" type="button">Water</button>
+              <button class="layer-toggle active" data-layer="transit" type="button">Transit</button>
+              <button class="layer-toggle active" data-layer="buildings" type="button">Buildings</button>
+            </div>
+          </div>
+
+          <!-- Viewport + Context Sidebar -->
+          <div class="city-viewport-container">
+            <div id="cityCanvasWrap" class="city3d-canvas-wrap" aria-label="3D view of Nexus City"></div>
+            <div class="city3d-hint">Drag to rotate · Scroll to zoom · Right-click to pan · Click structure to inspect</div>
+            <button id="resetCameraBtn" class="btn btn-ghost btn-sm city3d-reset-btn" type="button">Reset View</button>
+
+            <!-- Contextual Telemetry Sidebar -->
+            <aside class="map-info-sidebar" id="mapInfo">
+              <h3>Select a zone</h3>
+              <p style="font-size:0.85rem; color:var(--text-secondary);">
+                Click or tap any building, solar array, or utility station in the 3D model to inspect its simulated status.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         5. INTERACTIVE SMART-CITY SYSTEMS SHOWCASE
+         =================================================================== -->
+    <section id="systems-showcase" class="page-section">
+      <div class="container">
+        <div class="section-eyebrow">INTELLIGENCE SUBSYSTEMS</div>
+        <h2 class="section-heading-lg">Six Pillars of Urban Resilience.</h2>
+        <p class="section-subtext">
+          Explore how NEXUS 2040 balances municipal services across competing environmental pressures in real time.
+        </p>
+
+        <!-- Segmented Tab Navigation -->
+        <div class="system-tabs-nav">
+          <button class="system-tab-btn active" data-system-tab="energy" type="button">⚡ Clean Energy &amp; Grid</button>
+          <button class="system-tab-btn" data-system-tab="water" type="button">💧 Sponge Water Hydrology</button>
+          <button class="system-tab-btn" data-system-tab="transit" type="button">🚦 Autonomous Mobility</button>
+          <button class="system-tab-btn" data-system-tab="air" type="button">🍃 Clean Air Corridors</button>
+          <button class="system-tab-btn" data-system-tab="emergency" type="button">🛡️ Crisis Response</button>
+          <button class="system-tab-btn" data-system-tab="economy" type="button">💰 100-Unit Economy</button>
+        </div>
+
+        <!-- Panel 1: Energy -->
+        <div class="system-panel active" id="sys-panel-energy">
+          <div class="system-details-card">
+            <h3>⚡ Clean Energy &amp; Smart Grid</h3>
+            <p>
+              Pairing utility-scale solar photovoltaic farms with wind turbines and solid-state Battery Energy Storage Systems (BESS) to supply clean power across diurnal variations.
+            </p>
+            <div class="system-stats-cluster">
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Renewable Target</span>
+                <span class="sys-stat-val" style="color:var(--green);">80%</span>
+              </div>
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Grid Stability Margin</span>
+                <span class="sys-stat-val" style="color:var(--cyan);">+15% MW</span>
+              </div>
+            </div>
+            <div class="rule-highlight-box">
+              <strong>Governing Rule: RULE-SOLAR-02 &amp; RULE-GRID-05</strong><br/>
+              When renewable share &lt; 55% or supply-demand margin &lt; 10%, battery banks discharge and solar farm output scales up automatically.
+            </div>
+          </div>
+          <div class="bento-card" style="padding:2rem;">
+            <h4>Live Substation Telemetry</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+              The grid automatically mitigates overloads and thermal stresses before transformers can trip.
+            </p>
+            <a href="#operations-suite" class="btn btn-primary">Open Grid Dashboard ↗</a>
+          </div>
+        </div>
+
+        <!-- Panel 2: Water -->
+        <div class="system-panel" id="sys-panel-water">
+          <div class="system-details-card">
+            <h3>💧 Sponge Water Hydrology &amp; Recycling</h3>
+            <p>
+              Citywide permeable pavements, retention canals, and rainwater harvesting networks feed the Yamuna Eco-Reservoir and recharge deep aquifers.
+            </p>
+            <div class="system-stats-cluster">
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Safe Reserve Buffer</span>
+                <span class="sys-stat-val" style="color:var(--cyan);">&gt; 55%</span>
+              </div>
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Flood Sluice Time</span>
+                <span class="sys-stat-val" style="color:var(--green);">&lt; 120s</span>
+              </div>
+            </div>
+            <div class="rule-highlight-box">
+              <strong>Governing Rule: RULE-WATER-03</strong><br/>
+              Triggers when water reserves drop below 40%. Recycled greywater lines and telemetry-controlled rainwater harvesting restore safe margins.
+            </div>
+          </div>
+          <div class="bento-card" style="padding:2rem;">
+            <h4>Reservoir Monitoring</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+              Monitors storage capacity, contamination markers, and automated sluice gate positioning.
+            </p>
+            <a href="#operations-suite" class="btn btn-primary">Open Water Dashboard ↗</a>
+          </div>
+        </div>
+
+        <!-- Panel 3: Transit -->
+        <div class="system-panel" id="sys-panel-transit">
+          <div class="system-details-card">
+            <h3>🚦 Autonomous Mobility &amp; Metro</h3>
+            <p>
+              Adaptive signal control coordinates with the elevated metro viaduct and autonomous EV fleets to prevent intersection gridlocks.
+            </p>
+            <div class="system-stats-cluster">
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Congestion Cap</span>
+                <span class="sys-stat-val" style="color:var(--amber);">&lt; 65%</span>
+              </div>
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Average Speed Gain</span>
+                <span class="sys-stat-val" style="color:var(--green);">+35 km/h</span>
+              </div>
+            </div>
+            <div class="rule-highlight-box">
+              <strong>Governing Rule: RULE-TRAFFIC-01</strong><br/>
+              Triggers when congestion exceeds 65%. Activates adaptive green-wave signal phases to disperse bottlenecks and reduce vehicle idling.
+            </div>
+          </div>
+          <div class="bento-card" style="padding:2rem;">
+            <h4>Transit Operations</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+              Connects residential sectors to commercial CBD hubs via zero-emission autonomous transit corridors.
+            </p>
+            <a href="#operations-suite" class="btn btn-primary">Open Transit Dashboard ↗</a>
+          </div>
+        </div>
+
+        <!-- Panel 4: Air Quality -->
+        <div class="system-panel" id="sys-panel-air">
+          <div class="system-details-card">
+            <h3>🍃 Clean Air Corridors &amp; PM2.5 Scrubbers</h3>
+            <p>
+              Urban green canopies, reflective pavement, and nano-scrubber drone towers continuously filter particulates across dense high-rise clusters.
+            </p>
+            <div class="system-stats-cluster">
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Target Air Quality</span>
+                <span class="sys-stat-val" style="color:var(--green);">&lt; 100 AQI</span>
+              </div>
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Scrubber Response</span>
+                <span class="sys-stat-val" style="color:var(--cyan);">Automated</span>
+              </div>
+            </div>
+            <div class="rule-highlight-box">
+              <strong>Governing Rule: RULE-AQI-04</strong><br/>
+              Triggers when AQI exceeds 150. Restricts high-emission perimeter logistics and activates misting scrubber towers in high-density zones.
+            </div>
+          </div>
+          <div class="bento-card" style="padding:2rem;">
+            <h4>Environmental Sensors</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+              Real-time monitoring of particulate matter, ambient temperature, and urban heat island mitigation.
+            </p>
+            <a href="#operations-suite" class="btn btn-primary">Open Air Quality Dashboard ↗</a>
+          </div>
+        </div>
+
+        <!-- Panel 5: Emergency -->
+        <div class="system-panel" id="sys-panel-emergency">
+          <div class="system-details-card">
+            <h3>🛡️ Multi-Hazard Emergency Response</h3>
+            <p>
+              Pre-programmed crisis response protocols for Heatwaves, Monsoonal Deluges, Traffic Gridlocks, and Grid Shortages.
+            </p>
+            <div class="system-stats-cluster">
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Response Budget</span>
+                <span class="sys-stat-val" style="color:var(--cyan);">100 Units</span>
+              </div>
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Hospital Surge</span>
+                <span class="sys-stat-val" style="color:var(--green);">Protected</span>
+              </div>
+            </div>
+            <div class="rule-highlight-box">
+              <strong>Governing Rule: RULE-HEAT-06 &amp; RULE-HEALTH-07</strong><br/>
+              Deploys mobile triage units, reflective cooling infrastructure, and automated patient rerouting when hospital load exceeds 70%.
+            </div>
+          </div>
+          <div class="bento-card" style="padding:2rem;">
+            <h4>Emergency Sandbox</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+              Simulate and resolve major urban crises with the click of a button in the operations suite.
+            </p>
+            <a href="#operations-suite" class="btn btn-primary">Open Emergency Suite ↗</a>
+          </div>
+        </div>
+
+        <!-- Panel 6: Economy -->
+        <div class="system-panel" id="sys-panel-economy">
+          <div class="system-details-card">
+            <h3>💰 100-Unit Infrastructure Economy</h3>
+            <p>
+              Unlike fantasy dashboards, NEXUS 2040 does not assume infinite resources. Every action costs a real, finite budget (80 of 100 units covers all rules).
+            </p>
+            <div class="system-stats-cluster">
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Total Cycle Cost</span>
+                <span class="sys-stat-val" style="color:var(--cyan);">80 / 100</span>
+              </div>
+              <div class="sys-stat-box">
+                <span class="sys-stat-label">Fiscal Rule</span>
+                <span class="sys-stat-val" style="color:var(--green);">Zero Deficit</span>
+              </div>
+            </div>
+            <div class="rule-highlight-box">
+              <strong>Fiscal Integrity Principle:</strong><br/>
+              If the budget cannot fully cover an intervention, the engine scales effect proportionally and logs a partial application. It never overspends.
+            </div>
+          </div>
+          <div class="bento-card" style="padding:2rem;">
+            <h4>Budget Optimization</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+              Test citywide optimization under strict budgetary constraints.
+            </p>
+            <a href="#operations-suite" class="btn btn-primary">Run City Optimization ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         6. FUTURE SIMULATOR (2026 — 2040)
+         =================================================================== -->
+    <section id="future-section" class="page-section">
+      <div class="container">
+        <div class="section-eyebrow">LONG-RANGE URBAN TRAJECTORY</div>
+        <h2 class="section-heading-lg">Future Simulator (2026 — 2040).</h2>
+        <p class="section-subtext">
+          Compare unmanaged baseline urban degradation against sustained AI-driven optimization across India's next fifteen years of growth.
+        </p>
+
+        <div class="future-card-container">
+          <div class="future-controls">
+            <div class="year-selector">
+              <label for="yearSlider">Target Horizon:</label>
+              <input type="range" id="yearSlider" min="2026" max="2040" step="1" value="2026">
+              <span class="year-badge-lg" id="yearDisplay">2026</span>
+            </div>
+
+            <div class="future-toggles">
+              <label class="toggle-label">
+                <input type="checkbox" id="baselineToggle" checked>
+                <span>Show Baseline Projection</span>
+              </label>
+              <label class="toggle-label">
+                <input type="checkbox" id="optimizedToggle" checked>
+                <span>Show AI-Optimized Target</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="future-chart-container">
+            <canvas id="futureChart" width="800" height="380"></canvas>
+          </div>
+
+          <div class="future-summary" style="margin-bottom:2rem;">
+            <div id="futureSummaryContent">
+              <!-- Populated dynamically by script.js -->
+            </div>
+          </div>
+
+          <!-- Milestones Grid -->
+          <div class="milestone-grid" id="milestoneGrid">
+            <div class="milestone-card" data-year="2028">
+              <span class="milestone-year">2028</span>
+              <h4>Solar Expansion Phase 1</h4>
+              <p>Utility solar farm deployment raises renewable share to 35%.</p>
+            </div>
+            <div class="milestone-card" data-year="2030">
+              <span class="milestone-year">2030</span>
+              <h4>Smart Grid Integration</h4>
+              <p>Solid-state battery storage enables 24/7 renewable baseload.</p>
+            </div>
+            <div class="milestone-card" data-year="2033">
+              <span class="milestone-year">2033</span>
+              <h4>Sponge Hydrology Network</h4>
+              <p>Citywide rainwater harvesting reaches 60% coverage.</p>
+            </div>
+            <div class="milestone-card" data-year="2036">
+              <span class="milestone-year">2036</span>
+              <h4>Autonomous Transit Corridors</h4>
+              <p>Adaptive signal control reduces vehicle congestion by 40%.</p>
+            </div>
+            <div class="milestone-card" data-year="2040">
+              <span class="milestone-year">2040</span>
+              <h4>Carbon Neutral Target</h4>
+              <p>Nexus City achieves net-zero greenhouse emissions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         7. NEXUS 2040: CITY RESCUE (Promotional Game Showcase)
+         =================================================================== -->
+    <section id="rescue-section" class="page-section">
+      <div class="container">
+        <div class="section-eyebrow">INTERACTIVE PROMOTIONAL GAME</div>
+        <h2 class="section-heading-lg">Step Into Command.</h2>
+        <p class="section-subtext">
+          Experience the decisions behind the data in <strong>NEXUS 2040: CITY RESCUE</strong>, a top-down emergency defense game built to demonstrate smart-city crisis management in under 5 minutes.
+        </p>
+
+        <div class="rescue-showcase-card">
+          <div>
+            <span class="hero-badge" style="border-color:var(--red); color:var(--red); background:var(--red-dim);">
+              🚨 3 INFRASTRUCTURE EMERGENCIES · 1 RESCUE UNIT
+            </span>
+            <h3 style="font-size:2rem; margin:0.5rem 0 1rem; color:#fff;">NEXUS 2040: CITY RESCUE</h3>
+            <p style="color:var(--text-secondary); line-height:1.6; margin-bottom:1.75rem;">
+              Take the wheel of an autonomous Emergency Response Unit. Drive through the city grid, locate highlighted infrastructure stations, and deploy smart-grid solutions to save 10 million citizens.
+            </p>
+
+            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+              <a href="city_rescue.html" target="_blank" class="btn btn-primary btn-lg" style="box-shadow:0 0 20px rgba(40,217,236,0.4);">
+                <span>🚀</span> Launch Game (Fullscreen) ↗
+              </a>
+              <button class="btn btn-ghost btn-lg" id="toggleEmbedGameBtn" type="button">
+                <span>🎮</span> Play Inside Page
+              </button>
+            </div>
+          </div>
+
+          <div class="rescue-preview-box">
+            <h4 style="margin:0; font-size:0.95rem; color:var(--text-primary);">Mission Objectives:</h4>
+            <div class="rescue-mission-row">
+              <span style="font-size:1.2rem;">⚡</span>
+              <div>
+                <strong>Mission 1: The Blackout</strong>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Grid Station Alpha BESS synchronization.</div>
+              </div>
+            </div>
+            <div class="rescue-mission-row">
+              <span style="font-size:1.2rem;">🌊</span>
+              <div>
+                <strong>Mission 2: The Flood</strong>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Sponge-city deep aquifer storm pumps.</div>
+              </div>
+            </div>
+            <div class="rescue-mission-row">
+              <span style="font-size:1.2rem;">🚦</span>
+              <div>
+                <strong>Mission 3: The Traffic Crisis</strong>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Nexus Crossroads AI green-wave clearance.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Optional In-Page Embedded Game Container (Toggled on click) -->
+        <div class="rescue-embed-wrap" id="embedGameWrap" hidden>
+          <iframe src="city_rescue.html" style="width:100%; height:100%; border:none;" title="NEXUS 2040 City Rescue Game"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         8. OPERATIONS SUITE (The Full Simulation Suite)
+         =================================================================== -->
+    <section id="operations-suite" class="page-section">
+      <div class="container">
+        <div class="section-eyebrow">COMMAND &amp; CONTROL ENVIRONMENT</div>
+        <h2 class="section-heading-lg">Simulation Operations Suite.</h2>
+        <p class="section-subtext">
+          Access the deep simulation suite: live sensor telemetry, rule engine recommendations, deterministic budget optimizer, crisis sandbox, and 2D topographical mapping.
+        </p>
+
+        <div class="operations-deck">
+          <!-- Segmented Sub-Tool Selector -->
+          <nav class="ops-subnav" aria-label="Operations Tools">
+            <button class="ops-tab-btn active" data-tool-tab="metrics" type="button">📊 Live Metrics</button>
+            <button class="ops-tab-btn" data-tool-tab="engine" type="button">⚙️ Decision Engine</button>
+            <button class="ops-tab-btn" data-tool-tab="optimize" type="button">⚡ Optimization (100 Budget)</button>
+            <button class="ops-tab-btn" data-tool-tab="emergencies" type="button">🚨 Crisis Sandbox</button>
+            <button class="ops-tab-btn" data-tool-tab="scenarios" type="button">🎭 Scenario Presets</button>
+            <button class="ops-tab-btn" data-tool-tab="map2d" type="button">🗺️ 2D Topo Map</button>
+            <button class="ops-tab-btn" data-tool-tab="about" type="button">ℹ️ About &amp; Ethics</button>
+          </nav>
+
+          <!-- Tool Panel 1: Live Metrics -->
+          <div class="ops-tool-panel active" id="tool-panel-metrics">
+            <div class="metric-grid">
+              <article class="metric-card">
+                <header><h2>Traffic Congestion</h2><span class="status-pill" id="status-traffic">—</span></header>
+                <div class="metric-value"><span id="value-traffic">--</span><span class="metric-unit">%</span></div>
+                <div class="metric-bar"><div class="metric-bar-fill" id="bar-traffic" style="width:0%"></div></div>
+                <canvas class="sparkline" id="spark-traffic" width="260" height="42"></canvas>
+              </article>
+
+              <article class="metric-card">
+                <header><h2>Renewable Energy Share</h2><span class="status-pill" id="status-renewable">—</span></header>
+                <div class="metric-value"><span id="value-renewable">--</span><span class="metric-unit">%</span></div>
+                <div class="metric-bar"><div class="metric-bar-fill" id="bar-renewable" style="width:0%"></div></div>
+                <canvas class="sparkline" id="spark-renewable" width="260" height="42"></canvas>
+              </article>
+
+              <article class="metric-card">
+                <header><h2>Water Reserves</h2><span class="status-pill" id="status-water">—</span></header>
+                <div class="metric-value"><span id="value-water">--</span><span class="metric-unit">%</span></div>
+                <div class="metric-bar"><div class="metric-bar-fill" id="bar-water" style="width:0%"></div></div>
+                <canvas class="sparkline" id="spark-water" width="260" height="42"></canvas>
+              </article>
+
+              <article class="metric-card">
+                <header><h2>Air Quality Index</h2><span class="status-pill" id="status-aqi">—</span></header>
+                <div class="metric-value"><span id="value-aqi">--</span><span class="metric-unit">AQI</span></div>
+                <div class="metric-bar"><div class="metric-bar-fill" id="bar-aqi" style="width:0%"></div></div>
+                <canvas class="sparkline" id="spark-aqi" width="260" height="42"></canvas>
+              </article>
+
+              <article class="metric-card">
+                <header><h2>Electricity Demand</h2><span class="status-pill" id="status-demand">—</span></header>
+                <div class="metric-value"><span id="value-demand">--</span><span class="metric-unit">% of grid</span></div>
+                <div class="metric-bar"><div class="metric-bar-fill" id="bar-demand" style="width:0%"></div></div>
+                <canvas class="sparkline" id="spark-demand" width="260" height="42"></canvas>
+              </article>
+            </div>
+
+            <div style="margin-top:2rem;">
+              <h4 style="color:var(--text-muted); text-transform:uppercase; font-size:0.8rem; margin-bottom:1rem;">Grid &amp; Environment Detail</h4>
+              <div class="stat-row-grid" id="statRowGrid"></div>
+            </div>
+          </div>
+
+          <!-- Tool Panel 2: Decision Engine -->
+          <div class="ops-tool-panel" id="tool-panel-engine" style="display:none;">
+            <p style="margin-bottom:1.5rem; color:var(--text-secondary);">
+              A deterministic rule-based reasoning system. Every recommendation surfaces from explicit threshold checks defined in code.
+            </p>
+            <div class="engine-grid">
+              <div class="recommendations" id="recommendationsPanel">
+                <h3>Current Advisory Recommendations</h3>
+                <div id="recommendationsList"></div>
+              </div>
+              <div class="decision-log-panel">
+                <div class="log-header">
+                  <h3>AI Decision Log</h3>
+                  <button id="clearLogBtn" class="btn btn-ghost btn-sm" type="button">Clear Log</button>
+                </div>
+                <div class="decision-log" id="decisionLog" role="log" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tool Panel 3: Optimization -->
+          <div class="ops-tool-panel" id="tool-panel-optimize" style="display:none;">
+            <div class="resource-meter">
+              <div class="rm-head">
+                <span>Infrastructure Budget</span>
+                <span id="infraBudgetLabel">100 / 100</span>
+              </div>
+              <div class="rm-track"><div class="rm-fill" id="infraBudgetFill" style="width:100%"></div></div>
+            </div>
+
+            <button id="optimizeBtn" class="btn btn-primary" type="button" style="margin-bottom:2rem;">
+              ⚡ Optimize City Under 100-Unit Budget
+            </button>
+
+            <div class="rules-reference">
+              <h4 style="margin-bottom:0.75rem;">Optimization Rule Set</h4>
+              <div class="rule-row">
+                <span class="rule-name">RULE-TRAFFIC-01 — Adaptive Traffic Signal Control</span>
+                <span class="rule-cost">Cost: 8</span>
+                <span class="rule-detail">Triggers when congestion &gt; 65%. Reduces congestion and eases air quality.</span>
+              </div>
+              <div class="rule-row">
+                <span class="rule-name">RULE-SOLAR-02 — Scale Up Solar Farm Output</span>
+                <span class="rule-cost">Cost: 12</span>
+                <span class="rule-detail">Triggers when renewable share &lt; 55%. Increases clean generation.</span>
+              </div>
+              <div class="rule-row">
+                <span class="rule-name">RULE-WATER-03 — Recycling &amp; Rainwater Harvesting</span>
+                <span class="rule-cost">Cost: 10</span>
+                <span class="rule-detail">Triggers when reserves &lt; 40%. Restores reserves toward safe levels.</span>
+              </div>
+              <div class="rule-row">
+                <span class="rule-name">RULE-AQI-04 — Emission Control &amp; Green Corridors</span>
+                <span class="rule-cost">Cost: 9</span>
+                <span class="rule-detail">Triggers when AQI &gt; 150. Reduces particulate emissions.</span>
+              </div>
+              <div class="rule-row">
+                <span class="rule-name">RULE-GRID-05 — Battery Storage &amp; Demand Response</span>
+                <span class="rule-cost">Cost: 15</span>
+                <span class="rule-detail">Triggers when supply/demand margin &lt; 10 points. Stabilizes grid.</span>
+              </div>
+              <div class="rule-row">
+                <span class="rule-name">RULE-HEAT-06 — Urban Cooling Infrastructure</span>
+                <span class="rule-cost">Cost: 12</span>
+                <span class="rule-detail">Triggers when temperature &gt; 38°C. Mitigates heat island effect.</span>
+              </div>
+              <div class="rule-row">
+                <span class="rule-name">RULE-HEALTH-07 — Mobile Health Surge Units</span>
+                <span class="rule-cost">Cost: 14</span>
+                <span class="rule-detail">Triggers when hospital load &gt; 70%. Eases clinical capacity.</span>
+              </div>
+            </div>
+
+            <!-- Comparison Canvas -->
+            <div style="margin-top:2rem;">
+              <h4>Before / After Comparison</h4>
+              <p class="empty-state" id="comparisonEmpty">Run <strong>Optimize City</strong> or <strong>Deploy Emergency Response</strong> to generate comparison charts.</p>
+              <div id="comparisonContent" hidden>
+                <canvas id="comparisonChart" width="640" height="260"></canvas>
+                <div class="comparison-table" id="comparisonTable" style="margin-top:1rem;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tool Panel 4: Emergencies -->
+          <div class="ops-tool-panel" id="tool-panel-emergencies" style="display:none;">
+            <div class="emergency-banner" id="emergencyBanner" hidden>
+              <div><strong id="emergencyName">—</strong><div id="emergencyDesc" style="font-size:0.8rem; color:var(--text-secondary)"></div></div>
+              <button id="deployResponseBtn" class="btn btn-primary" type="button">Deploy Emergency Response</button>
+            </div>
+
+            <div class="emergency-grid">
+              <button class="emergency-card" data-emergency="heatwave" type="button">
+                <div class="ec-icon">☀️</div>
+                <h3>Heatwave</h3>
+                <p>Extreme temperatures spike cooling demand and hospital admissions.</p>
+              </button>
+              <button class="emergency-card" data-emergency="flood" type="button">
+                <div class="ec-icon">🌊</div>
+                <h3>Flood</h3>
+                <p>Monsoon deluge submerges roads and strains water reservoirs.</p>
+              </button>
+              <button class="emergency-card" data-emergency="traffic" type="button">
+                <div class="ec-icon">🚦</div>
+                <h3>Traffic Jam</h3>
+                <p>Sudden event gridlock worsens localized air quality.</p>
+              </button>
+              <button class="emergency-card" data-emergency="power" type="button">
+                <div class="ec-icon">⚡</div>
+                <h3>Power Shortage</h3>
+                <p>Generation shortfall reduces grid supply below demand margin.</p>
+              </button>
+            </div>
+
+            <div class="resource-meter">
+              <div class="rm-head">
+                <span>Emergency Response Capacity</span>
+                <span id="responseBudgetLabel">100 / 100</span>
+              </div>
+              <div class="rm-track"><div class="rm-fill" id="responseBudgetFill" style="width:100%"></div></div>
+            </div>
+          </div>
+
+          <!-- Tool Panel 5: Scenarios -->
+          <div class="ops-tool-panel" id="tool-panel-scenarios" style="display:none;">
+            <p style="color:var(--text-secondary);">Load preset metropolitan conditions for quick evaluation.</p>
+            <div class="scenario-grid" id="scenarioGrid">
+              <button class="scenario-card" data-scenario="normal" type="button">
+                <h3>Normal Operations</h3>
+                <p>Healthy baseline conditions across all systems.</p>
+              </button>
+              <button class="scenario-card" data-scenario="heatwaveCrisis" type="button">
+                <h3>Heatwave Crisis</h3>
+                <p>High temperature, strained grid, falling reserves.</p>
+              </button>
+              <button class="scenario-card" data-scenario="monsoonFlooding" type="button">
+                <h3>Monsoon Flooding</h3>
+                <p>Heavy congestion, contaminated reserves, hospital surge.</p>
+              </button>
+              <button class="scenario-card" data-scenario="festivalTraffic" type="button">
+                <h3>Festival Traffic Surge</h3>
+                <p>Severe congestion and poor air quality from event crowds.</p>
+              </button>
+              <button class="scenario-card" data-scenario="gridOverload" type="button">
+                <h3>Grid Overload</h3>
+                <p>Demand pressing against supply with weak renewable share.</p>
+              </button>
+            </div>
+          </div>
+
+          <!-- Tool Panel 6: 2D Map -->
+          <div class="ops-tool-panel" id="tool-panel-map2d" style="display:none;">
+            <div class="map2d-wrapper">
+              <canvas id="map2dCanvas" width="900" height="520"></canvas>
+              <div class="map2d-controls">
+                <button id="map2dZoomIn" class="map2d-btn" type="button" title="Zoom In">+</button>
+                <button id="map2dZoomOut" class="map2d-btn" type="button" title="Zoom Out">−</button>
+                <button id="map2dReset" class="map2d-btn" type="button" title="Reset View">⟲</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tool Panel 7: About -->
+          <div class="ops-tool-panel" id="tool-panel-about" style="display:none;">
+            <div style="max-width:800px; display:flex; flex-direction:column; gap:1rem;">
+              <h3>About NEXUS 2040</h3>
+              <p>
+                NEXUS 2040 is a concept demonstration built for a school exhibition on India's Vision 2040 — a technologically advanced, sustainable urban future. It simulates a fictional smart city, "Nexus City," showing how transparent rule-based systems empower city operators.
+              </p>
+              <div class="rule-highlight-box">
+                <strong>Simulated Proof of Concept:</strong> This software uses deterministic if/else logic, not a black-box model. It does not read real-world sensors or predict external events. All data is synthetically generated in your browser.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         9. CINEMATIC EPILOGUE & FOOTER
+         =================================================================== -->
+    <section class="epilogue-section">
+      <div class="container">
+        <div class="epilogue-card">
+          <div class="section-eyebrow" style="justify-content:center;">VISION 2040 MANIFESTO</div>
+          <div class="epilogue-quote">
+            "The future of India's cities will not be defined by concrete alone, but by the transparency of the intelligence that connects our citizens to their resources."
+          </div>
+          <p style="color:var(--text-secondary); max-width:620px; margin:0 auto 2.5rem;">
+            Built for school exhibition showcase: Vision 2040 — Technology for a Sustainable India.
+          </p>
+
+          <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+            <a href="city_rescue.html" target="_blank" class="btn btn-primary btn-lg">
+              <span>🚨</span> Play City Rescue ↗
+            </a>
+            <a href="#hero" class="btn btn-ghost btn-lg">
+              <span>↑</span> Return to Top
+            </a>
+          </div>
+        </div>
+
+        <footer class="site-footer">
+          <div>
+            NEXUS 2040 // Educational Smart-City Concept Simulation · Zero External Dependencies · 100% Offline Compatible.
+          </div>
+          <div>
+            Built with Three.js &amp; HTML5 Canvas. All metrics synthetic.
+          </div>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="vendor/three.min.js"></script>
+  <script>
+    if (typeof THREE === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"><\/script>');
+    }
+  </script>
+  <script src="vendor/OrbitControls.js"></script>
+  <script>
+    if (typeof THREE !== 'undefined' && typeof THREE.OrbitControls !== 'function') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"><\/script>');
+    }
+  </script>
+  <script src="city3d.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
